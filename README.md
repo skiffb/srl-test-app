@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository is a solution to the test described here: https://gist.github.com/erubboli/f9b4c627b4c8adf651c5dbe762675e4f
 
-Things you may want to cover:
+To get the application running, after cloning the run `rails s` and the application will be hosted at http://localhost:3000
 
-* Ruby version
+The application is set up to run with mailcatcher in development. Info to view emails can be seen here: 
 
-* System dependencies
+https://mailcatcher.me/
 
-* Configuration
+You will just need to ensure that mailcatcher is installed and running and then emails will be sent to http://127.0.0.1:1080/
 
-* Database creation
+Please note that this application is a test solution and not production ready. It is missing tests, UI improvements, and production mailer and image hosting.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It is only intended to be used in development and as a base for providing a live production application.
