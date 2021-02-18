@@ -2,7 +2,7 @@
 
 This repository is a solution to the test described here: https://gist.github.com/erubboli/f9b4c627b4c8adf651c5dbe762675e4f
 
-To get the application running, after cloning the run `rails s` and the application will be hosted at http://localhost:3000
+To get the application running, after cloning run `rails s` and the application will be hosted at http://localhost:3000
 
 The application is set up to run with mailcatcher in development. Info to view emails can be seen here: 
 
