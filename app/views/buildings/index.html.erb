@@ -1,0 +1,56 @@
+<div class="container pt-5">
+    <h2>All Assets</h2>
+    <div class="row pt-5">
+
+        <% @buildings.each do |building| %>
+        <div class="col col-xs-12 col-md-6 col-lg-4 p-2">
+
+            <div class="card" style="width: 18rem;">
+                <% if building.image.attached? %>
+                    <%= image_tag building.image.variant(resize_to_limit: [100, 100]), class: "card-img-top" %>
+                <% end %>
+
+                <div class="card-body">
+                    <h5 class="card-title"><%= building.address %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><%= building.subclass %></h6>
+                    <p class="card-text"><%= building.sqmt %> square meters</p>
+                    <% if building.subclass == "house" %>
+
+                    <p class="card-text"><%= building.rooms %> rooms</p>
+                    <p class="card-text"><%= building.floors %> floors</p>
+                    <% if building.air_cond %>
+                    <p class="card-text">Air Conditioning</p>
+                    <% else %>
+                    <p class="card-text">No Air Conditioning</p>
+                    <% end %>
+
+
+                    <% elsif building.subclass == "complex_building" %>
+
+                    <p class="card-text"><%= building.units %> units</p>
+
+                    <% elsif building.subclass == "commercial_unit" %>
+
+                    <p class="card-text"><%= building.shops %> shops</p>
+                    <p class="card-text"><%= building.parking %> parking</p>
+
+                    <% end %>
+
+                    <p class="card-text">Price: <%= building.price %></p>
+
+                    <%= form_with(url: purchases_path, method: :create, html: {class: "form-horizontal", role: "form"}, local: true) do |f| %>
+                        <div class="form-group" id="owner-asset-form">
+                            <%= f.label "email" %>
+                            <%= f.text_field :email %>
+                            <%= f.hidden_field :building_id, :value => building.id %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.submit 'Make a Purchase', class: "btn btn-primary" %> 
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>

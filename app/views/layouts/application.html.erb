@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SrlTestApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="initial-scale=1">
+  </head>
+
+  <body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <% flash.each do |type, msg| %>
+      <% if type == "success" %>
+        <div class="alert alert-success mb-0">
+          <%= msg %>
+        </div>
+      <% else %>
+        <div class="alert alert-danger mb-0">
+          <%= msg %>
+        </div>
+      <% end %>
+    <% end %>
+    <nav class="navbar navbar-light bg-light">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/buildings/new">Add New Asset</a>
+    </nav>
+    <%= yield %>
+
+  </body>
+</html>
